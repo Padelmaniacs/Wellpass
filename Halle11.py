@@ -18,7 +18,7 @@ import re
 # KONSTANTEN & KONFIGURATION
 # ========================================
 
-WELLPASS_WERT = 13.50
+WELLPASS_WERT = 12.50
 WELLPASS_QR_LINK = "https://cdn.jsdelivr.net/gh/PadelPort/PP/Wellpass.jpeg"
 
 PRODUCT_TYPES = {
@@ -29,10 +29,7 @@ PRODUCT_TYPES = {
 }
 
 MITARBEITER = {
-    'Bella Schopf', 'Chris Schopf', 'Dagmar Ludwig', 'Denis Messerschmidt', 'Dennis Ochmann', 
-    'Enna Kulasevic', 'Fabio Pfaffenbauer', 'Lena Wagenblast', 'Lewis Abraham', 'Lisa Pfaffenbauer', 
-    'Manuel Müller', 'Michaela Schopf', 'Nico Warga', 'Noemi Mantel', 
-    'Oliver Krieger', 'Pascal Menikheim', 'Tobi Regnet', 'Valentin Schwamborn',
+    'Andy Schneiderhan', 'Andreas Schneiderhan', 'Tanja Schneiderhan', 'Mattia Mauta', 'Marcel Sidorov',
     'Spieler 1', 'Spieler 2', 'Spieler 3', 'Spieler 4', 'Playtomic'
 }
 
@@ -43,11 +40,11 @@ MITARBEITER = {
 def get_wellpass_wert(for_date: date) -> float:
     """
     Gibt den passenden Wellpass-Payout für ein Datum zurück.
-    Ab 01.12.2025: 13.50 €, davor 12.50 €.
+    Ab 01.12.2025: 12.50 €, davor 12.50 €.
     """
     grenze = date(2025, 12, 1)
     if for_date >= grenze:
-        return 13.50
+        return 12.50
     return 12.50
 
 def send_wellpass_template(to_phone_e164: str, firstname: str, playtime: str) -> bool:
